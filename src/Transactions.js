@@ -41,12 +41,13 @@ class Transactions extends React.Component {
           </thead>
           <tbody>
             { this.state.data.map((item, i) => {
-            return<tr>
-              <td>{item[i].created_at}</td>
-              <td>{item[i].counterparty_name}</td>
-              <td>{item[i].operation_type}</td>
-              <td>{item[i].amount}</td>
-            </tr>
+              console.log(i)
+              return<tr>
+                <td>{item[i].created_at}</td>
+                <td>{item[i].counterparty_name}</td>
+                <td>{item[i].operation_type}</td>
+                <td>{item[i].amount}</td>
+              </tr>
             })
             }
           </tbody>
