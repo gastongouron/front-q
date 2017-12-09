@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import 'react-table/react-table.css'
 
 class Home extends React.Component {

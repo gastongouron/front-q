@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import ReactTable from 'react-table'
+import React from "react";
 
 class Transactions extends React.Component {
 
@@ -22,16 +21,31 @@ class Transactions extends React.Component {
 
   componentDidMount() {
     this.loadData()
+
   }
 
 
   render() {
-    return (
+    var indents = [];
+    { this.state.data.map((item, i) => {
+      for(let k= 0; k < item.length; k++) {
+        indents.push(
+          <tr key={k}>
+            <td>{this.state.data[0][k].created_at}</td>
+            <td>{this.state.data[0][k].counterparty_name}</td>
+            <td>{this.state.data[0][k].operation_type}</td>
+            <td>{this.state.data[0][k].amount}</td>
+          </tr>
+        )
+      };
+    })
+    }
 
+    return (
 
       <div className="table-container">
         <table>
-          <thead>
+          <thead key="thead">
             <tr>
               <th>DD-MM-YY</th>
               <th>CounterParty Name</th>
@@ -39,17 +53,8 @@ class Transactions extends React.Component {
               <th>Amount</th>
             </tr>
           </thead>
-          <tbody>
-            { this.state.data.map((item, i) => {
-              console.log(i)
-              return<tr>
-                <td>{item[i].created_at}</td>
-                <td>{item[i].counterparty_name}</td>
-                <td>{item[i].operation_type}</td>
-                <td>{item[i].amount}</td>
-              </tr>
-            })
-            }
+          <tbody key="tbody">
+            {indents}
           </tbody>
         </table>
         </div>
