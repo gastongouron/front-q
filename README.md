@@ -1,3 +1,5 @@
-# Front qonto, run with:
+# Front app
+
+run with:
 
 `npm start`
