@@ -9,11 +9,13 @@ class Transactions extends React.Component {
   }
 
   loadData() {
+
     fetch('http://private-5d708-interviewfront.apiary-mock.com/transactions')
       .then(response => response.json())
       .then(data => {
-        this.setState({data: data })
-        console.log(this.state.data)
+        var a = Object.keys(data).map(function(k) { return data[k] })
+        this.setState({data: a })
+        console.log(this.state)
     })
       .catch(err => console.error(this.props.url, err.toString()))
   }
@@ -38,12 +40,15 @@ class Transactions extends React.Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-              <td>Germany</td>
+            { this.state.data.map((item, i) => {
+            return<tr>
+              <td>{item[i].created_at}</td>
+              <td>{item[i].counterparty_name}</td>
+              <td>{item[i].operation_type}</td>
+              <td>{item[i].amount}</td>
             </tr>
+            })
+            }
           </tbody>
         </table>
         </div>

@@ -18,8 +18,8 @@ class App extends Component {
     return (
       <HashRouter>
         <div>
-          <div class="container">
-              <div class="left">
+          <div className="container">
+              <div className="left">
                 <div className="logo">
                    <h1>Finpal</h1>
                 </div>
@@ -28,7 +28,7 @@ class App extends Component {
                     <li><NavLink to="/transactions">Transactions</NavLink></li>
                   </ul>
               </div>
-              <div class="right">
+              <div className="right">
                 <div className="bar"></div>
                 <div className="content">
                   <Route exact path="/" component={Home}/>
